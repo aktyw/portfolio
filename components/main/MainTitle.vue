@@ -1,3 +1,83 @@
+<script setup lang="ts">
+import { gsap } from 'gsap';
+
+const title = ref<HTMLElement | null>(null);
+
+onMounted(async () => {
+  split();
+  await handleAnimation();
+
+  document.getElementById('title-11')?.classList.add('shadow-alt', '!rotate-12');
+});
+
+function handleAnimation() {
+  return new Promise<void>((resolve) => {
+    const tl = gsap.timeline({
+      onComplete: resolve,
+    });
+
+    tl.to('.fade', {
+      opacity: 1,
+      scale: 1,
+      translateX: 0,
+      duration: 0.25,
+      stagger: 0.07,
+    })
+      .to(
+        '#mainTitleEl',
+        {
+          opacity: 1,
+          translateX: 0,
+          duration: 1.2,
+        },
+        '-=2'
+      )
+      .to(
+        '#mainTitleEl',
+        {
+          translateY: 0,
+          duration: 0.6,
+        },
+        '-=.4'
+      );
+  });
+}
+
+function split() {
+  const text = 'Frontend Developer';
+
+  text.split('').forEach((w, idx) => {
+    if (w.length > 0) {
+      const html = `<span class="fade scale-105 inline-block shadow transition duration-500 opacity-0" id="title-${idx}">${w}</span>`;
+      title.value?.insertAdjacentHTML('beforeend', html);
+    }
+    if (idx === 7) {
+      const br = document.createElement('br');
+      title.value?.appendChild(br);
+    }
+  });
+
+  const br = document.createElement('br');
+  title.value?.appendChild(br);
+}
+</script>
+
 <template>
-  <h1 class="text-9xl text-primary font-serif font-bold">Creative</h1>
+  <h1
+    ref="title"
+    id="mainTitleEl"
+    class="text-[80px] leading-[4rem] sm:text-[180px] sm:leading-[8.5rem] h-96 text-base-content font-serif font-semibold italic bg-clip-text text-clip [&>span:hover]:transition [&>span:hover]:scale-105 [&>span:hover]:!rotate-12 cursor-default select-none -translate-x-60 tracking-tighter"
+  >
+    <slot />
+  </h1>
 </template>
+
+<style>
+.shadow:hover {
+  text-shadow: 0 0 5px #f3d16f, 0 0 10px #f3d16f, 0 0 20px #e3552e;
+}
+
+.shadow-alt {
+  text-shadow: 0 0 5px #f3d16f, 0 0 10px #f3d16f, 0 0 20px #e3552e;
+}
+</style>

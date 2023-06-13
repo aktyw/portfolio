@@ -4,25 +4,27 @@
 
 @layer base {
   @font-face {
-    font-family: 'Cormorant Garamond';
-    font-weight: 400;
-    src: url(./fonts/CormorantGaramond-Regular.woff) format('woff');
+    font-family: 'Barlow';
+    font-weight: 700;
+    font-style: italic;
+    src: url(./fonts/Barlow-BoldItalic.woff2) format('woff');
   }
   @font-face {
-    font-family: 'Cormorant Garamond';
+    font-family: 'Barlow';
     font-weight: 500;
-    src: url(./fonts/CormorantGaramond-Medium.woff) format('woff');
+    src: url(./fonts/Barlow-Medium.woff2) format('woff');
   }
 
   @font-face {
-    font-family: 'Cormorant Garamond';
-    font-weight: 600;
-    src: url(./fonts/CormorantGaramond-SemiBold.woff) format('woff');
+    font-family: 'Barlow';
+    font-weight: 400;
+    src: url(./fonts/Barlow-Regular.woff2) format('woff');
   }
   @font-face {
-    font-family: 'Cormorant Garamond';
+    font-family: 'Barlow';
     font-weight: 600;
-    src: url(./fonts/CormorantGaramond-SemiBoldItalic.woff) format('woff');
+    font-style: italic;
+    src: url(./fonts/Barlow-SemiBoldItalic.woff2) format('woff');
   }
   @font-face {
     font-family: 'Inter';
@@ -38,5 +40,14 @@
     font-family: 'Inter';
     font-weight: 600;
     src: url(./fonts/Inter-SemiBold.woff2) format('woff');
+  }
+
+  ::selection {
+    color: #f9f9f9;
+    background: #C05749;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }

@@ -13,16 +13,19 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Inter', 'Lato', 'Arial'],
-      serif: ['Cormorant Garamond', 'Cormorant', 'Georgia'],
+      serif: ['Barlow', 'Lato'],
     },
     extend: {
       colors: {
-        base: '#F6F3EC',
-        'base-content': '#3A3A3A',
-        primary: '#3A7C4C',
+        base: '#0F0D0D',
+        'base-content': '#f3d98b',
+        primary: '#C05749',
+        secondary: '#F1CB5D',
+        accent: '#3A7C4C',
       },
       textColor: {
         p: 'base-content',
+        span: 'base-content',
         h1: 'base-content',
         h2: 'base-content',
       },
