@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-base flex justify-center min-h-screen overflow-hidden">
+  <div class="bg-base-100 flex justify-center min-h-screen overflow-hidden px-4 sm:px-8">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

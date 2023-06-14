@@ -11,7 +11,7 @@ const { elementX: xImg, x: xMouse } = useMouseInElement(target);
 
 const distance = computed(() => xMouse.value - xImg.value);
 
-const movingPosition = computed(() => `${xImg.value + distance.value / 1.5}px`);
+const movingPosition = computed(() => `${xImg.value + distance.value / 1.2}px`);
 
 // this.position.x += (x - this.position.x) / this.lag;
 
@@ -40,12 +40,12 @@ const movingPosition = computed(() => `${xImg.value + distance.value / 1.5}px`);
   <div
     @mouseenter="showImage = true"
     @mouseleave="showImage = false"
-    class="relative h-20 border-t-2 border-b-2 border-base [&>*]:text-base-content bg-base hover:border-base-content flex justify-between items-center transition cursor-pointer w-full px-32"
+    class="project relative h-24 border-t-2 border-b-2 border-base [&>*]:text-base-content bg-base-100 hover:border-base-content flex flex-col sm:flex-row justify-center sm:justify-between sm:items-center transition cursor-pointer w-full sm:px-32 opacity-0"
   >
     <img
       ref="target"
       :src="src"
-      class="w-80 h-96 object-cover rounded-xl absolute left-80 !z-50 opacity-0 transition duration-500 scale-80 pointer-events-none"
+      class="w-40 h-60 sm:w-80 sm:h-96 object-cover rounded-xl absolute left-80 !z-20 opacity-0 transition duration-500 scale-80 pointer-events-none"
       :class="{
         '!opacity-100 !duration-500 !scale-110 !rotate-3': showImage,
       }"
