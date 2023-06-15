@@ -65,16 +65,59 @@ onMounted(() => {
       });
   });
 
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: '.footer-title',
-        start: 'top bottom',
-        scrub: 1,
-        markers: true,
-      },
-    })
-    .to('.circle', { width: '3800px', height: '3800px' });
+  mm.add('(min-width: 641px)', () => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.footer-title',
+          start: 'bottom bottom',
+          scrub: 1,
+          markers: true,
+        },
+      })
+      .to('.circle', { width: '2000px', height: '2000px' })
+      .to(document.body, { background: '#f3d98b ' });
+  });
+
+  mm.add('(min-width: 1920px)', () => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.footer-title',
+          start: 'bottom bottom',
+          scrub: 1,
+          markers: true,
+        },
+      })
+      .to('.circle', { width: '6000px', height: '6000px' })
+      .to(document.body, { background: '#f3d98b ' });
+  });
+
+  mm.add('(max-width: 640px)', () => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.footer-title',
+          start: 'bottom bottom',
+          scrub: 1,
+          markers: true,
+        },
+      })
+      .to('.circle', { width: '2000px', height: '2600px' });
+  });
+
+  // gsap
+  //   .timeline({
+  //     scrollTrigger: {
+  //       trigger: '.projects',
+  //       start: 'center bottom',
+  //       toggleActions: 'play reverse play reverse',
+  //       markers: true,
+  //     },
+  //   })
+  //   .to(['.app', '#header'], {
+  //     backgroundColor: '#f7f7f7',
+  //   });
 
   mm.add('(max-width: 2640px)', () => {
     gsap
@@ -167,24 +210,24 @@ onMounted(() => {
         </div>
       </nav>
     </header>
-    <main class="relative grid grid-cols-12 min-h-screen w-full flex-nowrap pb-24 sm:pb-96">
+    <main class="grid grid-cols-12 min-h-screen w-full flex-nowrap pb-36 sm:pb-96">
       <div
         class="lg:grid lg:grid-cols-12 col-span-12 flex flex-col items-center justify-around sm:justify-center pt-24 sm:pt-32 h-screen sm:min-h-[80vh] align-bottom pb-12"
       >
         <MainTitle />
-        <section class="col-span-12 lg:col-start-8">
+        <section class="lg:col-span-12 lg:col-start-8">
           <div id="subOne" class="opacity-0">
-            <BaseTitle class="leading-8">Hi, I'm Arek Tywonek<br /></BaseTitle>
-            <p class="text-sm sm:text-md font-sans sm:max-w-[32ch] text-base-content">
-              An <span class="italic">open-minded</span> and <span class="italic">detail-oriented</span> developer whose
-              passion is providing <span>value</span> by <span class="italic">visually pleasing</span> websites and
+            <BaseTitle class="leading-8">Arek Tywonek</BaseTitle>
+            <p class="text-sm sm:text-md font-sans max-w-[32ch] text-base-content">
+              I'm an <span class="italic">open-minded</span> and <span class="italic">detail-oriented</span> developer
+              whose passion is providing value by <span class="italic">visually pleasing</span> websites and
               applications.
             </p>
           </div>
         </section>
       </div>
 
-      <section class="lg:col-start-3 col-span-12 flex flex-col gap-2 pb-24 sm:pb-96">
+      <section class="col-start-5 lg:col-start-3 col-span-12 flex flex-col gap-2 pb-24 sm:pb-96">
         <div id="subTwo">
           <BaseTitle>Technologies</BaseTitle>
           <p class="text-sm sm:text-md font-sans sm:max-w-[40ch] text-base-content">
@@ -198,35 +241,19 @@ onMounted(() => {
           </p>
         </div>
       </section>
-      <section id="projects" class="relative col-span-12 flex flex-col w-full">
-        <BaseTitle class="project sm:text-center pb-16 opacity-0">Selected Projects</BaseTitle>
-        <ProjectLink src="../assets/img/donuts.png">
-          Donuts
-          <template #desc> advanced tasks and notes manager </template>
-        </ProjectLink>
-        <ProjectLink src="../assets/img/memorize.png">
-          Memorize
-          <template #desc> memory card game </template>
-        </ProjectLink>
-        <ProjectLink src="../assets/img/baryt.png">
-          Restauracja Baryt
-          <template #desc> website and full branding for restaurant</template>
-        </ProjectLink>
-        <ProjectLink src="../assets/img/countries.png">
-          Countries Rest API
-          <template #desc> frontendmentor challanges </template>
-        </ProjectLink>
-      </section>
+
+      <ProjectList />
     </main>
-    <footer id="contact" class="relative flex flex-col text-center z-30">
+    <footer id="contact" class="relative flex flex-col justify-center items-center text-center z-30 h-screen">
       <div class="flex flex-col gap-12">
-        <BaseTitle class="footer-title uppercase text-5xl sm:text-9xl italic z-50 pb-12 !text-base-100 text-left"
+        <BaseTitle class="footer-title uppercase text-6xl sm:text-9xl italic z-50 pb-12 !text-base-100"
           >Let's Work<br />
           Together</BaseTitle
         >
         <LazyFooterContact></LazyFooterContact>
       </div>
-      <span class="text-base-100 pt-24 uppercase flex items-center justify-center text-sm font-light"
+      <span
+        class="absolute bottom-8 text-base-100 py-4 z-20 uppercase flex items-center justify-center text-sm font-bold"
         >portfolio of arek tywonek © 2023</span
       >
     </footer>

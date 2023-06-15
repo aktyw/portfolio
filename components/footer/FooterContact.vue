@@ -1,17 +1,13 @@
 <template>
   <div class="relative pb-4">
-    <BaseBadge>Get in touch</BaseBadge>
     <div class="relative gap-4 flex flex-col z-20 text-base-100">
+      <BaseBadge class="text-xl sm:text-5xl" href="mailto:arek.tywonek@gmail.com">arek.tywonek@gmail.com</BaseBadge>
       <div class="flex flex-col gap-8 sm:gap-16 pb-16">
-        <a href="mailto:arek.tywonek@gmail.com" class="font-bold text-xl sm:text-5xl hover:underline items-center"
-          >arek.tywonek@gmail.com</a
-        >
-        <div class="flex items-center justify-center gap-8">
-          <a href="https://linkedin.com/in/arektywonek" class="text-xl hover:underline items-center">linkedin</a>
-          <a href="https://github.com/aktyw" class="text-xl hover:underline items-center">github</a>
+        <div class="flex gap-4 items-start justify-start">
+          <BaseBadge class="sm:text-3xl" href="https://linkedin.com/in/arektywonek">linkedin </BaseBadge>
+          <BaseBadge class="sm:text-3xl" href="https://github.com/aktyw"> github </BaseBadge>
         </div>
       </div>
-      
     </div>
     <LazyFooterCircle />
   </div>

@@ -44,10 +44,14 @@
 
   ::selection {
     color: #f9f9f9;
-    background: #C05749;
+    background: #c05749;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    transition: all 0.3s;
   }
 }

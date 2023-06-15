@@ -1,56 +1,9 @@
-<script setup lang="ts">
-const showImage = ref(false);
-const target = ref();
-
-type Props = {
-  src: string;
-};
-defineProps<Props>();
-
-const { elementX: xImg, x: xMouse } = useMouseInElement(target);
-
-const distance = computed(() => xMouse.value - xImg.value);
-
-const movingPosition = computed(() => `${xImg.value + distance.value / 1.2}px`);
-
-// this.position.x += (x - this.position.x) / this.lag;
-
-// const link = document.querySelectorAll('.link');
-// const linkHoverReveal = document.querySelectorAll('.hover-reveal');
-// const linkImages = document.querySelectorAll('.hidden-img');
-
-// const handleMoveImage = (e) => {};
-
-// link.addEventListener('mousemove', (e) => {
-//   linkHoverReveal.style.opacity = 1;
-//   linkHoverReveal.style.transform = `translate(-100%, -50% ) rotate(5deg)`;
-//   linkImages.style.transform = 'scale(1, 1)';
-//   linkHoverReveal.style.left = e.clientX + 'px';
-// });
-
-//   link[i].addEventListener('mouseleave', () => {
-//     linkHoverReveal[i].style.opacity = 0;
-//     linkHoverReveal[i].style.transform = `translate(-50%, -50%) rotate(-5deg)`;
-//     linkImages[i].style.transform = 'scale(0.8, 0.8)';
-//   });
-// }
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div
-    @mouseenter="showImage = true"
-    @mouseleave="showImage = false"
-    class="project relative h-24 border-t-2 border-b-2 border-base [&>*]:text-base-content bg-base-100 hover:border-base-content flex flex-col sm:flex-row justify-center sm:justify-between sm:items-center transition cursor-pointer w-full sm:px-32 opacity-0"
+    class="project relative h-24 border-b border-base-100 [&>*]:text-base-content hover:border-base-content flex flex-col sm:flex-row justify-center sm:justify-between sm:items-center transition cursor-pointer w-full sm:px-32 opacity-0 z-30"
   >
-    <img
-      ref="target"
-      :src="src"
-      class="w-40 h-60 sm:w-80 sm:h-96 object-cover rounded-xl absolute left-80 !z-20 opacity-0 transition duration-500 scale-80 pointer-events-none"
-      :class="{
-        '!opacity-100 !duration-500 !scale-110 !rotate-3': showImage,
-      }"
-      :style="{ left: movingPosition }"
-    />
     <ProjectTitle>
       <slot />
     </ProjectTitle>
