@@ -1,8 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+type Props = {
+  isShowImage: boolean;
+};
+
+defineProps<Props>();
+</script>
 
 <template>
-  <div
-    class="project relative h-24 border-b border-base-100 [&>*]:text-base-content hover:border-base-content flex flex-col sm:flex-row justify-center sm:justify-between sm:items-center transition cursor-pointer w-full sm:px-32 opacity-0 z-30"
+  <NuxtLink
+    class="under project relative h-24 [&>*]:text-base-content [&>*]:duration-700 flex flex-col sm:flex-row justify-center sm:justify-between sm:items-center transition cursor-pointer w-full sm:px-32 opacity-0 z-20 object-top"
+    :class="{
+      '[&>*]:!text-gray-600 [&>*]:opacity-50 [&>*]:hover:!text-base-content [&>*]:hover:opacity-100': isShowImage,
+    }"
   >
     <ProjectTitle>
       <slot />
@@ -10,29 +19,26 @@
     <ProjectDescription>
       <slot name="desc" />
     </ProjectDescription>
-  </div>
+  </NuxtLink>
 </template>
 
 <style scoped>
-/* .hover-reveal {
+.under::before {
+  content: '';
   position: absolute;
-  width: 300px;
-  height: 400px;
-  top: 50%;
-  left: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.5s ease-out;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(243 217 139);
+  transform-origin: bottom right;
+  transition: transform 0.45s ease-out;
 }
 
-.hover-reveal img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: relative;
-  transition: transform 0.4s ease-out;
-} */
+.under:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  transition: transform 0.45s ease-out;
+}
 </style>

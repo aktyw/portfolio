@@ -17,12 +17,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        'base-100': '#0F0D0D',
+        'base-100': '#111110',
         'base-200': '#f3d98b',
         'base-content': '#f3d98b',
         primary: '#C05749',
         secondary: '#F1CB5D',
-        accent: '#3A7C4C',
+        accent: '#36EB67',
       },
       textColor: {
         p: 'base-content',

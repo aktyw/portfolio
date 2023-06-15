@@ -72,10 +72,9 @@ onMounted(() => {
           trigger: '.footer-title',
           start: 'bottom bottom',
           scrub: 1,
-          markers: true,
         },
       })
-      .to('.circle', { width: '2000px', height: '2000px' })
+      .to('.circle', { width: '170vw', height: '170vh' })
       .to(document.body, { background: '#f3d98b ' });
   });
 
@@ -86,10 +85,9 @@ onMounted(() => {
           trigger: '.footer-title',
           start: 'bottom bottom',
           scrub: 1,
-          markers: true,
         },
       })
-      .to('.circle', { width: '6000px', height: '6000px' })
+      .to('.circle', { width: '5000px', height: '5000px' })
       .to(document.body, { background: '#f3d98b ' });
   });
 
@@ -100,7 +98,6 @@ onMounted(() => {
           trigger: '.footer-title',
           start: 'bottom bottom',
           scrub: 1,
-          markers: true,
         },
       })
       .to('.circle', { width: '2000px', height: '2600px' });
@@ -159,6 +156,22 @@ onMounted(() => {
       });
   });
 
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: '.project-title',
+        start: 'top 150px',
+        end: 'top+=200',
+        scrub: 1,
+        markers: true,
+      },
+    })
+    .to('.project', {
+      opacity: 0,
+      duration: 0.3,
+      stagger: 0.3,
+    });
+
   let tl5 = gsap
     .timeline({
       scrollTrigger: {
@@ -173,10 +186,10 @@ onMounted(() => {
     });
 
   tl.to('#headSubOne', { opacity: 1, duration: 0.4, delay: 1.8 })
-    .to(['#headSubTwo', '#navOne', '#navTwo'], { opacity: 1, duration: 0.5 }, '-=0.2')
-    .to('#headSubThree', { opacity: 1, duration: 0.5 }, '-=0.2')
-    .to('#headDivider', { x: 0, duration: 0.8, ease: Power4.easeOut }, '-=0.5')
-    .to('#subOne', { opacity: 1, duration: 0.5 });
+    .to(['#headSubTwo', '#navOne', '#navTwo'], { opacity: 1, duration: 0.4 }, '-=0.2')
+    .to('#headSubThree', { opacity: 1, duration: 0.4 }, '-=0.2')
+    .to('#headDivider', { x: 0, duration: 0.6, ease: Power4.easeOut }, '-=0.5')
+    .to('#subOne', { opacity: 1, duration: 0.5 }, '-=1.2');
 });
 </script>
 
@@ -184,7 +197,7 @@ onMounted(() => {
   <div class="max-w-[1440px] w-full flex flex-col items-center">
     <header
       id="header"
-      class="fixed w-full h-24 sm:h-32 flex flex-col justify-center items-center bg-base-100 z-20 bg-base"
+      class="fixed w-full h-24 sm:h-32 flex flex-col justify-center items-center bg-base-100 z-30 bg-base"
     >
       <HeaderSubtitleContainer>
         <HeaderSubtitle v-if="!smAndSmaller" id="headSubOne" class="opacity-0 col-start-2 col-span-3"
@@ -203,14 +216,14 @@ onMounted(() => {
         }}</HeaderSubtitle>
       </HeaderSubtitleContainer>
       <BaseDivider id="headDivider" />
-      <nav class="flex w-full justify-center">
-        <div class="flex gap-4 sm:block mt-2 sm:mt-0">
-          <NavbarLink id="navOne" class="opacity-0 sm:mx-8" :to="{ hash: '#contact' }">contact</NavbarLink>
-          <NavbarLink id="navTwo" class="opacity-0" href="https://github.com/aktyw">projects</NavbarLink>
+      <nav class="flex w-full justify-center z-40">
+        <div tabindex="-1" class="flex gap-4 sm:block mt-2 sm:mt-0 z-40">
+          <NavbarLink id="navOne" tabindex="1" class="opacity-0 sm:mx-8" :to="{ hash: '#contact' }">contact</NavbarLink>
+          <NavbarLink id="navTwo" class="opacity-0" :to="{ hash: '#projects' }">projects</NavbarLink>
         </div>
       </nav>
     </header>
-    <main class="grid grid-cols-12 min-h-screen w-full flex-nowrap pb-36 sm:pb-96">
+    <main class="grid grid-cols-12 min-h-screen w-full flex-nowrap pb-12 sm:pb-48">
       <div
         class="lg:grid lg:grid-cols-12 col-span-12 flex flex-col items-center justify-around sm:justify-center pt-24 sm:pt-32 h-screen sm:min-h-[80vh] align-bottom pb-12"
       >
@@ -218,8 +231,8 @@ onMounted(() => {
         <section class="lg:col-span-12 lg:col-start-8">
           <div id="subOne" class="opacity-0">
             <BaseTitle class="leading-8">Arek Tywonek</BaseTitle>
-            <p class="text-sm sm:text-md font-sans max-w-[32ch] text-base-content">
-              I'm an <span class="italic">open-minded</span> and <span class="italic">detail-oriented</span> developer
+            <p class="text-sm sm:text-base font-sans max-w-[32ch] text-base-content">
+              I'm an <span class="italic">open-minded</span> and <span class="italic">detail-oriented</span> frontend developer
               whose passion is providing value by <span class="italic">visually pleasing</span> websites and
               applications.
             </p>
@@ -230,7 +243,7 @@ onMounted(() => {
       <section class="col-start-5 lg:col-start-3 col-span-12 flex flex-col gap-2 pb-24 sm:pb-96">
         <div id="subTwo">
           <BaseTitle>Technologies</BaseTitle>
-          <p class="text-sm sm:text-md font-sans sm:max-w-[40ch] text-base-content">
+          <p class="text-sm sm:text-base font-sans sm:max-w-[40ch] text-base-content">
             Javascript, Typescript, Vue, Nuxt<br />
             HTML, CSS, SASS / SCSS, BEM<br />
             Tailwind, GSAP, DaisyUI, RWD<br />
@@ -250,7 +263,7 @@ onMounted(() => {
           >Let's Work<br />
           Together</BaseTitle
         >
-        <LazyFooterContact></LazyFooterContact>
+        <LazyFooterContact />
       </div>
       <span
         class="absolute bottom-8 text-base-100 py-4 z-20 uppercase flex items-center justify-center text-sm font-bold"
