@@ -1,5 +1,5 @@
 <template>
-  <h3 class="text-2xl text-base-content normal-case font-bold">
+  <h3 class="text-xl sm:text-4xl uppercase text-base-content font-bold">
     <slot />
   </h3>
 </template>

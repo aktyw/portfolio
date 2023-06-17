@@ -4,9 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { getBreakpoints } from '../composables/useBreakpoints';
 const { smAndSmaller } = getBreakpoints();
 
-gsap.registerPlugin(ScrollTrigger);
-
 onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger);
   const tl = gsap.timeline();
   const mm = gsap.matchMedia();
 
@@ -100,21 +99,9 @@ onMounted(() => {
           scrub: 1,
         },
       })
-      .to('.circle', { width: '2000px', height: '2600px' });
+      .to('.circle', { width: '900px', height: '1450px' })
+      .to(document.body, { background: '#f3d98b ' });
   });
-
-  // gsap
-  //   .timeline({
-  //     scrollTrigger: {
-  //       trigger: '.projects',
-  //       start: 'center bottom',
-  //       toggleActions: 'play reverse play reverse',
-  //       markers: true,
-  //     },
-  //   })
-  //   .to(['.app', '#header'], {
-  //     backgroundColor: '#f7f7f7',
-  //   });
 
   mm.add('(max-width: 2640px)', () => {
     gsap
@@ -127,19 +114,6 @@ onMounted(() => {
       })
       .to('#mainTitle', {
         xPercent: 10,
-        opacity: 0,
-      });
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '#subOne',
-          start: 'top 100px',
-          scrub: 1,
-          endTrigger: '#subTwo',
-        },
-      })
-      .to('#subOne', {
         opacity: 0,
       });
 
@@ -159,25 +133,14 @@ onMounted(() => {
   gsap
     .timeline({
       scrollTrigger: {
-        trigger: '.project-title',
-        start: 'top 150px',
-        end: 'top+=200',
-        scrub: 1,
-        markers: true,
-      },
-    })
-    .to('.project', {
-      opacity: 0,
-      duration: 0.3,
-      stagger: 0.3,
-    });
-
-  let tl5 = gsap
-    .timeline({
-      scrollTrigger: {
         trigger: '#subTwo',
         start: 'bottom bottom',
       },
+    })
+    .to('.project-title', {
+      opacity: 1,
+      duration: 0.3,
+      stagger: 0.3,
     })
     .to('.project', {
       opacity: 1,
@@ -194,7 +157,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="max-w-[1440px] w-full flex flex-col items-center">
+  <div class="relative max-w-[1440px] w-full flex flex-col items-center">
     <header
       id="header"
       class="fixed w-full h-24 sm:h-32 flex flex-col justify-center items-center bg-base-100 z-30 bg-base"
@@ -219,31 +182,31 @@ onMounted(() => {
       <nav class="flex w-full justify-center z-40">
         <div tabindex="-1" class="flex gap-4 sm:block mt-2 sm:mt-0 z-40">
           <NavbarLink id="navOne" tabindex="1" class="opacity-0 sm:mx-8" :to="{ hash: '#contact' }">contact</NavbarLink>
-          <NavbarLink id="navTwo" class="opacity-0" :to="{ hash: '#projects' }">projects</NavbarLink>
+          <NavbarLink id="navTwo" class="opacity-0" to="/#projects">projects</NavbarLink>
         </div>
       </nav>
     </header>
-    <main class="grid grid-cols-12 min-h-screen w-full flex-nowrap pb-12 sm:pb-48">
+    <main class="grid grid-cols-12 min-h-screen w-full flex-nowrap pb-12 sm:pb-32">
       <div
         class="lg:grid lg:grid-cols-12 col-span-12 flex flex-col items-center justify-around sm:justify-center pt-24 sm:pt-32 h-screen sm:min-h-[80vh] align-bottom pb-12"
       >
         <MainTitle />
-        <section class="lg:col-span-12 lg:col-start-8">
+        <section class="lg:col-span-12 lg:col-start-7 self-start">
           <div id="subOne" class="opacity-0">
             <BaseTitle class="leading-8">Arek Tywonek</BaseTitle>
-            <p class="text-sm sm:text-base font-sans max-w-[32ch] text-base-content">
-              I'm an <span class="italic">open-minded</span> and <span class="italic">detail-oriented</span> frontend developer
-              whose passion is providing value by <span class="italic">visually pleasing</span> websites and
+            <p class="text-base sm:text-2xl font-sans max-w-[32ch] text-light-content">
+              I'm an <span class="italic">open-minded</span> and <span class="italic">detail-oriented</span> frontend
+              developer whose passion is providing value by <span class="italic">visually pleasing</span> websites and
               applications.
             </p>
           </div>
         </section>
       </div>
 
-      <section class="col-start-5 lg:col-start-3 col-span-12 flex flex-col gap-2 pb-24 sm:pb-96">
+      <section class="col-start-4 lg:col-start-3 col-span-12 flex flex-col gap-2 pb-24 md:pb-60 lg:pb-96">
         <div id="subTwo">
           <BaseTitle>Technologies</BaseTitle>
-          <p class="text-sm sm:text-base font-sans sm:max-w-[40ch] text-base-content">
+          <p class="text-base sm:text-2xl font-sans sm:max-w-[40ch] text-light-content">
             Javascript, Typescript, Vue, Nuxt<br />
             HTML, CSS, SASS / SCSS, BEM<br />
             Tailwind, GSAP, DaisyUI, RWD<br />

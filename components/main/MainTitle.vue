@@ -68,13 +68,19 @@ function split() {
   <h1
     ref="title"
     id="mainTitle"
-    class="text-[70px] leading-[4rem] sm:text-[180px] sm:leading-[8.5rem] h-48 sm:h-96 text-base-content font-serif font-semibold italic bg-clip-text text-clip [&>span:hover]:transition [&>span:hover]:scale-105 [&>span:hover]:!rotate-12 cursor-default select-none -translate-x-60 tracking-tighter lg:col-span-12 lg:col-start-3 flex-nowrap"
+    class="text-small text-[70px] leading-[4rem] sm:text-[120px] md:text-[155px] lg:text-[185px] sm:leading-[8.5rem] h-48 sm:h-96 text-base-content font-serif font-semibold italic bg-clip-text text-clip [&>span:hover]:transition [&>span:hover]:scale-105 [&>span:hover]:!rotate-12 cursor-default select-none -translate-x-60 tracking-tighter lg:col-span-12 lg:col-start-3 flex-nowrap"
   >
     <slot />
   </h1>
 </template>
 
 <style>
+@media only screen and (max-width: 340px) {
+  .text-small {
+    font-size: 54px !important;
+  }
+}
+
 .shadow-letter {
   text-shadow: 0 0 10px #f3d26f76, 0 0 20px #f3af6f74, 0 0 30px #e3552e76;
   transition: 0.3s;

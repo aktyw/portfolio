@@ -8,9 +8,10 @@ defineProps<Props>();
 
 <template>
   <NuxtLink
-    class="under project relative h-24 [&>*]:text-base-content [&>*]:duration-700 flex flex-col sm:flex-row justify-center sm:justify-between sm:items-center transition cursor-pointer w-full sm:px-32 opacity-0 z-20 object-top"
+    class="under project relative mt-12 sm:p-0 h-24 lg:h-40 [&>*]:text-base-content [&>*]:duration-700 flex flex-col md:flex-row justify-center md:justify-between s, lg:items-center transition cursor-pointer w-full lg:px-32 opacity-0 z-20 object-top"
     :class="{
-      '[&>*]:!text-gray-600 [&>*]:opacity-50 [&>*]:hover:!text-base-content [&>*]:hover:opacity-100': isShowImage,
+      'lg:[&>*]:text-hide-content lg:[&>*]:opacity-10 lg:[&>*]:hover:text-base-content lg:[&>*]:hover:opacity-100 ':
+        isShowImage,
     }"
   >
     <ProjectTitle>
@@ -23,22 +24,33 @@ defineProps<Props>();
 </template>
 
 <style scoped>
+.textIsActive > * {
+  color: #f4e0a4 !important;
+  opacity: 100 !important;
+  transition: all 0.3s;
+}
 .under::before {
   content: '';
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: 1px;
+  height: 3px;
   bottom: 0;
   left: 0;
-  background-color: rgb(243 217 139);
+  background-color: #f4e0a4;
   transform-origin: bottom right;
   transition: transform 0.45s ease-out;
 }
-
-.under:hover::before {
+@media only screen and (min-width: 641px) {
+  .under:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    transition: transform 0.45s ease-out;
+  }
+}
+.under[mouse]::before {
   transform: scaleX(1);
   transform-origin: bottom left;
-  transition: transform 0.45s ease-out;
+  transition: transform 0.25s ease-out;
 }
 </style>

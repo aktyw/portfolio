@@ -4,6 +4,8 @@ import { resolve } from 'path';
 
 export default defineNuxtConfig({
   app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+    keepalive: true,
     head: {
       title: 'Arek Tywonek - Frontend Developer',
     },

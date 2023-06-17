@@ -1,5 +1,5 @@
 <template>
-  <span class="text-md text-base-content sans italic">
+  <span class="text-base sm:text-xl text-base-content sans italic lg:text-right">
     <slot />
   </span>
 </template>
