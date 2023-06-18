@@ -73,7 +73,7 @@ onMounted(() => {
           scrub: 1,
         },
       })
-      .to('.circle', { width: '170vw', height: '170vh' });
+      .to('.circle', { width: '220vw', height: '220vh' });
   });
 
   mm.add('(min-width: 1920px)', () => {
@@ -97,7 +97,7 @@ onMounted(() => {
           scrub: 1,
         },
       })
-      .to('.circle', { width: '900px', height: '1450px' });
+      .to('.circle', { width: '1200px', height: '1750px' });
   });
 
   mm.add('(max-width: 2640px)', () => {

@@ -66,8 +66,8 @@ function split() {
 
 <template>
   <h1
-    ref="title"
     id="mainTitle"
+    ref="title"
     class="text-small text-[70px] leading-[4rem] sm:text-[120px] md:text-[155px] lg:text-[185px] sm:leading-[8.5rem] h-48 sm:h-96 text-base-content font-serif font-semibold italic bg-clip-text text-clip [&>span:hover]:transition [&>span:hover]:scale-105 [&>span:hover]:!rotate-12 cursor-default select-none -translate-x-60 tracking-tighter lg:col-span-12 lg:col-start-3 flex-nowrap"
   >
     <slot />

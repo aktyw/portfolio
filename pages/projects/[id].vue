@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { getBreakpoints } from '../../composables/useBreakpoints';
 const route = useRoute();
 const router = useRouter();
 
+const { lgAndSmaller } = getBreakpoints();
+
 const projects: Record<
   string,
-  { title: string; description: string; tech: string; live: string; code: string; image: string; id: number }
+  { title: string; description: string; tech: string; live: string; code: string; images: string[]; id: number }
 > = {
   donuts: {
     title: 'Donuts',
@@ -12,7 +15,7 @@ const projects: Record<
     tech: 'TypeScript, Vue (Composition API, Pinia, Vue Router, VueUse, Vuelidate, VueDatePicker, VueDraggable), Vite, Firebase, Tailwind, DaisyUI, GSAP, Chart.js, ESLint, Prettier',
     live: 'https://donuts-manager.netlify.app/',
     code: 'https://github.com/aktyw/donuts',
-    image: `../../assets/img/donuts.png`,
+    images: ['/img/donuts.png', '/img/donuts-mobile.png'],
     id: 0,
   },
   memorize: {
@@ -21,7 +24,7 @@ const projects: Record<
     tech: 'Javascript, GSAP, Howler.js, CSS, HTML and Parcel. Written in OOP way.',
     live: 'https://memorize-card.netlify.app/',
     code: 'https://github.com/aktyw/memorize',
-    image: `../../assets/img/memorize.png`,
+    images: ['/img/memorize.png', '/img/memorize-mobile.png'],
     id: 1,
   },
   baryt: {
@@ -30,7 +33,7 @@ const projects: Record<
     tech: `Javascript, SCSS, HTML, GSAP`,
     live: 'https://restauracjabaryt.pl/',
     code: 'https://github.com/aktyw/baryt',
-    image: `../../assets/img/baryt.png`,
+    images: ['/img/baryt.png', '/img/baryt-mobile.png'],
     id: 2,
   },
   countries: {
@@ -39,7 +42,7 @@ const projects: Record<
     tech: 'JavaScript, SCSS, HTML and Model-View-Controller (MVC) design pattern.',
     live: 'https://countries-mvc.netlify.app/',
     code: 'https://github.com/aktyw/rest-api-countries',
-    image: `../../assets/img/countries.png`,
+    images: ['/img/countries.png', '/img/countries-mobile.png'],
     id: 3,
   },
 };
@@ -77,7 +80,7 @@ const handleCalcNextProject = () => {
     <div class="flex flex-col lg:flex-row justify-between gap-4 sm:gap-12">
       <img
         class="relative max-h-36 lg:w-1/2 sm:max-h-[80vh] object-cover"
-        :src="projects[name].image"
+        :src="lgAndSmaller ? projects[name].images[1] : projects[name].images[0]"
         alt="Project presentation "
       />
       <div>

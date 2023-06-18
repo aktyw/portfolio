@@ -7,7 +7,11 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     keepalive: true,
     head: {
+      htmlAttrs: {
+        lang: 'en',
+      },
       title: 'Arek Tywonek - Frontend Developer',
+      meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
     },
   },
   devtools: { enabled: true },

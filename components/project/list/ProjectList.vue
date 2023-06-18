@@ -3,7 +3,7 @@ import { gsap, Power1 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { getBreakpoints } from '../../../composables/useBreakpoints';
 
-const srcImage = ref();
+const srcImage = ref('/img/donuts.png');
 const showImage = ref(false);
 const target = ref();
 const image = ref();
@@ -49,7 +49,7 @@ function hideImage() {
 function handleShowMobile(e: ScrollTrigger) {
   const projectName = e?.trigger?.id;
   e.trigger?.setAttribute('mouse', '1');
-  handleSwitchImage(`../assets/img/${projectName}.png`);
+  handleSwitchImage([`/img/${projectName}.png`, `/img/${projectName}-mobile.png`]);
   showImage.value = true;
 
   gsap.timeline().to('.image', {
@@ -102,8 +102,8 @@ function handleHideImage() {
   hideImage();
 }
 
-function handleSwitchImage(src: string) {
-  srcImage.value = src;
+function handleSwitchImage(src: string[]) {
+  lgAndSmaller.value ? (srcImage.value = src[1]) : (srcImage.value = src[0]);
 }
 
 function handleMoveImage() {
@@ -138,7 +138,7 @@ function handleMoveImage() {
         id="donuts"
         :to="{ path: 'projects/donuts' }"
         :is-show-image="showImage"
-        @mouseenter="handleSwitchImage('../assets/img/donuts.png')"
+        @mouseenter="handleSwitchImage(['/img/donuts.png', '/img/donuts-mobile.png'])"
       >
         Donuts
         <template #desc> advanced tasks and notes manager </template>
@@ -147,7 +147,7 @@ function handleMoveImage() {
         id="memorize"
         :is-show-image="showImage"
         :to="'projects/memorize'"
-        @mouseenter="handleSwitchImage('../assets/img/memorize.png')"
+        @mouseenter="handleSwitchImage(['/img/memorize.png', '/img/memorize-mobile.png'])"
       >
         Memorize
         <template #desc> memory card game </template>
@@ -156,7 +156,7 @@ function handleMoveImage() {
         id="baryt"
         :is-show-image="showImage"
         :to="'projects/baryt'"
-        @mouseenter="handleSwitchImage('../assets/img/baryt.png')"
+        @mouseenter="handleSwitchImage(['/img/baryt.png', '/img/baryt-mobile.png'])"
       >
         Restauracja Baryt
         <template #desc> website and full branding for restaurant</template>
@@ -165,7 +165,7 @@ function handleMoveImage() {
         id="countries"
         :to="'projects/countries'"
         :is-show-image="showImage"
-        @mouseenter="handleSwitchImage('../assets/img/countries.png')"
+        @mouseenter="handleSwitchImage(['/img/countries.png', '/img/countries-mobile.png'])"
       >
         Countries Rest API
         <template #desc> frontendmentor challange </template>
@@ -174,6 +174,7 @@ function handleMoveImage() {
     <img
       ref="image"
       :src="srcImage"
+      alt="Project presentation"
       class="image right-0 top-1/2 lg:right-auto lg:top-auto absolute w-64 sm:w-[448px] object-cover rounded-xl opacity-0 pointer-events-none select-none z-10"
     />
   </section>
