@@ -3,7 +3,7 @@ import { gsap, Power1 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { getBreakpoints } from '../../../composables/useBreakpoints';
 
-const srcImage = ref('/img/donuts.png');
+const srcImage = ref('/img/donuts.webp');
 const showImage = ref(false);
 const target = ref();
 const image = ref();
@@ -49,7 +49,7 @@ function hideImage() {
 function handleShowMobile(e: ScrollTrigger) {
   const projectName = e?.trigger?.id;
   e.trigger?.setAttribute('mouse', '1');
-  handleSwitchImage([`/img/${projectName}.png`, `/img/${projectName}-mobile.png`]);
+  handleSwitchImage([`/img/${projectName}.webp`, `/img/${projectName}-mobile.webp`]);
   showImage.value = true;
 
   gsap.timeline().to('.image', {
@@ -57,10 +57,11 @@ function handleShowMobile(e: ScrollTrigger) {
     height: '280px',
     position: 'fixed',
     top: '25%',
-    right: '-30px',
+    right: '-40px',
+    filter: `sepia(40%)`,
+    opacity: '40%',
     rotate: 8,
     maxHeight: '280px',
-    opacity: 1,
   });
 }
 
@@ -92,7 +93,7 @@ function handleShowImage() {
     y: yMouse.value - imgHeight.value / 2,
     maxHeight: '600px',
     height: '600px',
-    opacity: 1,
+    opacity: '50%',
   });
 }
 
@@ -113,7 +114,7 @@ function handleMoveImage() {
     translateX: elementX.value - imgWidth.value / 2,
     translateY: yMouse.value - imgHeight.value / 3,
     rotate: distanceFromCenter.value * 3,
-    filter: `brightness(${Math.abs(power.value / 10) + 80}%) sepia(25%)`,
+    filter: `brightness(${Math.abs(power.value / 10) + 80}%) sepia(40%)`,
     ease: Power1.easeOut,
   });
 }
@@ -138,7 +139,7 @@ function handleMoveImage() {
         id="donuts"
         :to="{ path: 'projects/donuts' }"
         :is-show-image="showImage"
-        @mouseenter="handleSwitchImage(['/img/donuts.png', '/img/donuts-mobile.png'])"
+        @mouseenter="handleSwitchImage(['/img/donuts.webp', '/img/donuts-mobile.webp'])"
       >
         Donuts
         <template #desc> advanced tasks and notes manager </template>
@@ -147,7 +148,7 @@ function handleMoveImage() {
         id="memorize"
         :is-show-image="showImage"
         :to="'projects/memorize'"
-        @mouseenter="handleSwitchImage(['/img/memorize.png', '/img/memorize-mobile.png'])"
+        @mouseenter="handleSwitchImage(['/img/memorize.webp', '/img/memorize-mobile.webp'])"
       >
         Memorize
         <template #desc> memory card game </template>
@@ -156,7 +157,7 @@ function handleMoveImage() {
         id="baryt"
         :is-show-image="showImage"
         :to="'projects/baryt'"
-        @mouseenter="handleSwitchImage(['/img/baryt.png', '/img/baryt-mobile.png'])"
+        @mouseenter="handleSwitchImage(['/img/baryt.webp', '/img/baryt-mobile.webp'])"
       >
         Restauracja Baryt
         <template #desc> website and full branding for restaurant</template>
@@ -165,7 +166,7 @@ function handleMoveImage() {
         id="countries"
         :to="'projects/countries'"
         :is-show-image="showImage"
-        @mouseenter="handleSwitchImage(['/img/countries.png', '/img/countries-mobile.png'])"
+        @mouseenter="handleSwitchImage(['/img/countries.webp', '/img/countries-mobile.webp'])"
       >
         Countries Rest API
         <template #desc> frontendmentor challange </template>

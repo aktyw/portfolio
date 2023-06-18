@@ -15,7 +15,7 @@ const projects: Record<
     tech: 'TypeScript, Vue (Composition API, Pinia, Vue Router, VueUse, Vuelidate, VueDatePicker, VueDraggable), Vite, Firebase, Tailwind, DaisyUI, GSAP, Chart.js, ESLint, Prettier',
     live: 'https://donuts-manager.netlify.app/',
     code: 'https://github.com/aktyw/donuts',
-    images: ['/img/donuts.png', '/img/donuts-mobile.png'],
+    images: ['/img/donuts.webp', '/img/donuts-mobile.webp'],
     id: 0,
   },
   memorize: {
@@ -24,7 +24,7 @@ const projects: Record<
     tech: 'Javascript, GSAP, Howler.js, CSS, HTML and Parcel. Written in OOP way.',
     live: 'https://memorize-card.netlify.app/',
     code: 'https://github.com/aktyw/memorize',
-    images: ['/img/memorize.png', '/img/memorize-mobile.png'],
+    images: ['/img/memorize.webp', '/img/memorize-mobile.webp'],
     id: 1,
   },
   baryt: {
@@ -33,7 +33,7 @@ const projects: Record<
     tech: `Javascript, SCSS, HTML, GSAP`,
     live: 'https://restauracjabaryt.pl/',
     code: 'https://github.com/aktyw/baryt',
-    images: ['/img/baryt.png', '/img/baryt-mobile.png'],
+    images: ['/img/baryt.webp', '/img/baryt-mobile.webp'],
     id: 2,
   },
   countries: {
@@ -42,7 +42,7 @@ const projects: Record<
     tech: 'JavaScript, SCSS, HTML and Model-View-Controller (MVC) design pattern.',
     live: 'https://countries-mvc.netlify.app/',
     code: 'https://github.com/aktyw/rest-api-countries',
-    images: ['/img/countries.png', '/img/countries-mobile.png'],
+    images: ['/img/countries.webp', '/img/countries-mobile.webp'],
     id: 3,
   },
 };
