@@ -174,7 +174,7 @@ function handleMoveImage() {
     <img
       ref="image"
       :src="srcImage"
-      class="image right-0 top-1/2 absolute w-64 sm:w-[448px] object-cover rounded-xl opacity-0 pointer-events-none select-none z-10"
+      class="image right-0 top-1/2 lg:right-auto lg:top-auto absolute w-64 sm:w-[448px] object-cover rounded-xl opacity-0 pointer-events-none select-none z-10"
     />
   </section>
 </template>

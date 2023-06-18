@@ -73,8 +73,7 @@ onMounted(() => {
           scrub: 1,
         },
       })
-      .to('.circle', { width: '170vw', height: '170vh' })
-      .to(document.body, { background: '#f3d98b ' });
+      .to('.circle', { width: '170vw', height: '170vh' });
   });
 
   mm.add('(min-width: 1920px)', () => {
@@ -86,8 +85,7 @@ onMounted(() => {
           scrub: 1,
         },
       })
-      .to('.circle', { width: '5000px', height: '5000px' })
-      .to(document.body, { background: '#f3d98b ' });
+      .to('.circle', { width: '5000px', height: '5000px' });
   });
 
   mm.add('(max-width: 640px)', () => {
@@ -99,8 +97,7 @@ onMounted(() => {
           scrub: 1,
         },
       })
-      .to('.circle', { width: '900px', height: '1450px' })
-      .to(document.body, { background: '#f3d98b ' });
+      .to('.circle', { width: '900px', height: '1450px' });
   });
 
   mm.add('(max-width: 2640px)', () => {
