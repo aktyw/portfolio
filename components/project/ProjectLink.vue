@@ -8,7 +8,7 @@ defineProps<Props>();
 
 <template>
   <NuxtLink
-    class="under project relative mt-12 lg:mt-0 sm:p-0 h-24 lg:h-48 [&>*]:text-base-content [&>*]:duration-700 flex flex-col md:flex-row justify-center md:justify-between s, lg:items-center transition cursor-pointer w-full lg:px-32 opacity-0 z-20 object-top "
+    class="under project relative mt-12 lg:mt-0 sm:p-0 h-24 lg:h-48 [&>*]:text-base-content [&>*]:duration-700 flex flex-col md:flex-row justify-center md:justify-between s, lg:items-center transition cursor-pointer w-full lg:px-32 opacity-0 z-20 object-top outline-custom"
     :class="{
       'lg:[&>*]:text-hide-content lg:[&>*]:opacity-10 lg:[&>*]:hover:text-base-content lg:[&>*]:hover:opacity-100 ':
         isShowImage,

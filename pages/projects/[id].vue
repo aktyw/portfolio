@@ -70,7 +70,11 @@ const handleCalcNextProject = () => {
   >
     <div class="relative under-line">
       <div class="relative flex w-full justify-between py-2 sm:py-4">
-        <NuxtLink class="under relative inline-block outline-none outline-custom cursor-pointer" @click="router.back()"
+        <NuxtLink
+          tabindex="0"
+          class="under relative inline-block outline-none outline-custom cursor-pointer"
+          @click="router.back()"
+          @keyup.enter="router.back()"
           >Go back</NuxtLink
         >
         <NuxtLink class="under hidden relative sm:inline-block outline-none outline-custom" :to="{ path: '/' }"

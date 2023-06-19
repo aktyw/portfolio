@@ -19,15 +19,15 @@ function handleAnimation() {
       opacity: 1,
       scale: 1,
       translateX: 0,
-      duration: 0.25,
-      stagger: 0.07,
+      duration: 0.2,
+      stagger: 0.04,
     })
       .to(
         '#mainTitle',
         {
           opacity: 1,
           translateX: 0,
-          duration: 1.2,
+          duration: 0.8,
         },
         '-=2'
       )
@@ -47,7 +47,7 @@ function split() {
 
   text.split('').forEach((w, idx) => {
     if (w.length > 0 && idx !== 8) {
-      const html = `<span class="fade scale-105 align-bottom inline-block shadow-alt transition duration-500 opacity-0" id="title-${idx}">${w}</span>`;
+      const html = `<span class="fade scale-110 align-bottom inline-block shadow-alt transition duration-500 opacity-0" id="title-${idx}">${w}</span>`;
       title.value?.insertAdjacentHTML('beforeend', html);
     }
     if (idx === 8) {

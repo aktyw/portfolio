@@ -7,6 +7,7 @@ const srcImage = ref();
 const showImage = ref(false);
 const target = ref();
 const image = ref();
+const { lgAndSmaller } = getBreakpoints();
 
 const { elementY: yMouse, elementX, elementWidth } = useMouseInElement(target);
 const { elementWidth: imgWidth, elementHeight: imgHeight, elementX: xMouseImg } = useMouseInElement(image);
@@ -14,12 +15,11 @@ const { elementWidth: imgWidth, elementHeight: imgHeight, elementX: xMouseImg } 
 const distanceFromCenter = computed(() => Math.round(elementX.value - elementWidth.value / 2) / 100);
 const power = computed(() => xMouseImg.value - imgWidth.value / 2);
 
-const { lgAndSmaller } = getBreakpoints();
-
 gsap.registerPlugin(ScrollTrigger);
 
 if (process.client && lgAndSmaller.value) {
   const projectsGSAP = gsap.utils.toArray('.project');
+
   projectsGSAP.forEach((project) => {
     gsap.to('.project', {
       scrollTrigger: {
@@ -37,18 +37,10 @@ if (process.client && lgAndSmaller.value) {
   });
 }
 
-function hideImage() {
-  gsap.timeline().to('.image', {
-    duration: 0.5,
-    maxHeight: 0,
-    rotate: 0,
-    height: 0,
-  });
-}
-
 function handleShowMobile(e: ScrollTrigger) {
   const projectName = e?.trigger?.id;
   e.trigger?.setAttribute('mouse', '1');
+
   handleSwitchImage([`/img/${projectName}.webp`, `/img/${projectName}-mobile.webp`]);
   showImage.value = true;
 
@@ -67,26 +59,23 @@ function handleShowMobile(e: ScrollTrigger) {
 
 function handleHideMobile(e: ScrollTrigger) {
   e.trigger?.removeAttribute('mouse');
+
   if (e.trigger?.id !== 'countries') return;
-
-  showImage.value = false;
-
-  hideImage();
+  handleHideImage();
 }
 
 function handleHideLeaveBackMobile(e: ScrollTrigger) {
   e.trigger?.removeAttribute('mouse');
 
   if (e.trigger?.id !== 'donuts') return;
-  showImage.value = false;
-
-  hideImage();
+  handleHideImage();
 }
 
 function handleShowImage() {
   if (lgAndSmaller.value) return;
 
   showImage.value = true;
+
   gsap.timeline().to('.image', {
     duration: 0.5,
     x: elementX.value - imgWidth.value / 2,
@@ -97,18 +86,13 @@ function handleShowImage() {
   });
 }
 
-function handleHideImage() {
-  showImage.value = false;
-
-  hideImage();
-}
-
 function handleSwitchImage(src: string[]) {
   lgAndSmaller.value ? (srcImage.value = src[1]) : (srcImage.value = src[0]);
 }
 
 function handleMoveImage() {
   if (lgAndSmaller.value) return;
+
   gsap.to('.image', {
     duration: 1,
     translateX: elementX.value - imgWidth.value / 2,
@@ -116,6 +100,20 @@ function handleMoveImage() {
     rotate: distanceFromCenter.value * 3,
     filter: `brightness(${Math.abs(power.value / 10) + 80}%) sepia(40%)`,
     ease: Power1.easeOut,
+  });
+}
+
+function handleHideImage() {
+  showImage.value = false;
+  hideImage();
+}
+
+function hideImage() {
+  gsap.timeline().to('.image', {
+    duration: 0.5,
+    maxHeight: 0,
+    rotate: 0,
+    height: 0,
   });
 }
 </script>

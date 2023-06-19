@@ -37,7 +37,7 @@ export default defineNuxtConfig({
           crossorigin: 'anonymous',
         },
         {
-          rel: 'preload',
+          rel: 'prefetch',
           as: 'image',
           type: 'image/webp',
           href: 'img/memorize-mobile.webp',
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
           crossorigin: 'anonymous',
         },
         {
-          rel: 'preload',
+          rel: 'prefetch',
           as: 'image',
           type: 'image/webp',
           href: 'img/baryt-mobile.webp',
@@ -53,7 +53,7 @@ export default defineNuxtConfig({
           crossorigin: 'anonymous',
         },
         {
-          rel: 'preload',
+          rel: 'prefetch',
           as: 'image',
           type: 'image/webp',
           href: 'img/countries-mobile.webp',
