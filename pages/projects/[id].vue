@@ -5,10 +5,17 @@ const router = useRouter();
 
 const { lgAndSmaller } = getBreakpoints();
 
-const projects: Record<
-  string,
-  { title: string; description: string; tech: string; live: string; code: string; images: string[]; id: number }
-> = {
+interface Project {
+  title: string;
+  description: string;
+  tech: string;
+  live: string;
+  code: string;
+  images: string[];
+  id: number;
+}
+
+const projects: Record<string, Project> = {
   donuts: {
     title: 'Donuts',
     description: `Donuts is a straightforward and user-friendly application designed to help users efficiently manage their tasks and notes. It allows for advanced task, project, and note management.`,
@@ -94,7 +101,7 @@ const handleCalcNextProject = () => {
             </div>
           </div>
           <BaseTitle
-            class="uppercase font-bold absolute text-[44px] sm:text-8xl lg:text-9xl sm:left-1/4 sm:absolute bottom-16 sm:right-64 flex justify-center"
+            class="uppercase absolute text-[44px] sm:text-8xl lg:text-9xl sm:left-1/4 sm:absolute bottom-16 sm:right-64 flex justify-center"
           >
             {{ projects[name].title }}
           </BaseTitle>

@@ -179,7 +179,7 @@ onMounted(() => {
       <nav class="flex w-full justify-center z-40">
         <div tabindex="-1" class="flex gap-4 sm:block mt-2 sm:mt-0 z-40">
           <NavbarLink id="navOne" tabindex="1" class="opacity-0 sm:mx-8" :to="{ hash: '#contact' }">contact</NavbarLink>
-          <NavbarLink id="navTwo" class="opacity-0" to="/#projects">projects</NavbarLink>
+          <NavbarLink id="navTwo" class="opacity-0" to="/projects/donuts">projects</NavbarLink>
         </div>
       </nav>
     </header>

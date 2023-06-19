@@ -12,8 +12,8 @@ module.exports = {
   css: ['~/assets/main.css'],
   theme: {
     fontFamily: {
-      sans: ['Inter', 'Lato', 'Arial'],
-      serif: ['Barlow', 'Lato'],
+      sans: ['Inter', 'Lato', 'Poppins', 'Arial'],
+      title: ['Barlow', 'Lato'],
     },
     extend: {
       colors: {

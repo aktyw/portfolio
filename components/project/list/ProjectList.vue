@@ -3,7 +3,7 @@ import { gsap, Power1 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { getBreakpoints } from '../../../composables/useBreakpoints';
 
-const srcImage = ref('/img/donuts.webp');
+const srcImage = ref();
 const showImage = ref(false);
 const target = ref();
 const image = ref();

@@ -5,41 +5,34 @@
 @layer base {
   @font-face {
     font-family: 'Barlow';
-    font-weight: 700;
+    font-weight: 600;
     font-style: italic;
-    src: url(./fonts/Barlow-BoldItalic.woff2) format('woff');
+    src: url(/fonts/Barlow-SemiBoldItalic.woff2) format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-weight: 400;
+    src: url(/public/fonts/Inter-Regular.woff2) format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-weight: 600;
+    src: url(/public/fonts/Inter-SemiBold.woff2) format('woff2');
+    font-display: swap;
   }
   @font-face {
     font-family: 'Barlow';
     font-weight: 500;
-    src: url(./fonts/Barlow-Medium.woff2) format('woff');
-  }
-
-  @font-face {
-    font-family: 'Barlow';
-    font-weight: 400;
-    src: url(./fonts/Barlow-Regular.woff2) format('woff');
+    src: url(/public/fonts/Barlow-Medium.woff2) format('woff2');
+    font-display: swap;
   }
   @font-face {
     font-family: 'Barlow';
-    font-weight: 600;
-    font-style: italic;
-    src: url(./fonts/Barlow-SemiBoldItalic.woff2) format('woff');
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-weight: 300;
-    src: url(./fonts/Inter-LightBETA.woff2) format('woff');
-  }
-  @font-face {
-    font-family: 'Inter';
     font-weight: 400;
-    src: url(./fonts/Inter-Regular.woff2) format('woff');
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-weight: 600;
-    src: url(./fonts/Inter-SemiBold.woff2) format('woff');
+    src: url(/public/fonts/Barlow-Regular.woff2) format('woff2');
+    font-display: swap;
   }
 
   ::selection {
