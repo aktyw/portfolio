@@ -1,6 +1,14 @@
-# Nuxt 3 Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Portfolio website
+
+Tech: Nuxt, Typescript, Tailwind, GSAP
+
+[LIVE](https://arektywonek.netlify.app/)
+
+
+## Screenshots
+
+![Portfolio](./public/ss.png?raw=true)
 
 ## Setup
 
@@ -38,5 +46,3 @@ Locally preview production build:
 ```bash
 npm run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

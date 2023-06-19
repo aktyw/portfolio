@@ -5,9 +5,8 @@ useStartAnimation();
 </script>
 
 <template>
-  <div class="relative max-w-[1440px] w-full flex flex-col items-center">
+  <div class="!bg-red relative max-w-[1440px] w-full flex flex-col items-center">
     <TheHeader />
-
     <main class="grid grid-cols-12 min-h-screen w-full flex-nowrap pb-12 sm:pb-32">
       <MainContainer>
         <MainTitle />
@@ -25,5 +24,3 @@ useStartAnimation();
     </footer>
   </div>
 </template>
-
-<style scoped></style>
